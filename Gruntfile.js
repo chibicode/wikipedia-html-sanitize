@@ -107,7 +107,7 @@ module.exports = function(grunt) {
   }
   grunt.registerTask('getHtml', 'Download a Wikipedia HTML file and simplify it.', getHtml);
   grunt.registerTask('getCss', 'Download CSS files contained in a Wikipedia HTML file.', getCss);
-  grunt.registerTask('cleanCss', 'Download CSS files contained in a Wikipedia HTML file.', cleanCss);
+  grunt.registerTask('cleanCss', 'Cleans and concatenates downloaded CSS files.', cleanCss);
   grunt.registerTask('default', ['getHtml:' + slug, 'getCss:' + slug, 'cleanCss:' + slug, 'connect:server:keepalive']);
 
   grunt.initConfig({
