@@ -5,6 +5,7 @@ var fs = require('fs');
 var html = require('html');
 var uncss = require('uncss');
 var glob = require("glob");
+var rimraf = require("rimraf");
 
 module.exports = function(grunt) {
 
@@ -98,7 +99,9 @@ module.exports = function(grunt) {
             done(false);
           } else {
             grunt.log.writeln('Created ' + slug + '.css');
-            done();
+            rimraf("tmp", function(error) {
+              done();
+            });
           }
         });
       }
