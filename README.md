@@ -7,12 +7,11 @@ Cleans HTML & CSS of a Wikipedia page. Used for my personal project. Code is a m
 Requires `grunt`. After `npm install`, run:
 
 ```
-grunt --slug=<slug>
-
-# Then open http://localhost:8000/<slug>.html
+# Cleans HTML & CSS on http://en.wikipedia.org/wiki/Hatsune_Miku
+# and outputs them in output/ directory. This also starts a server,
+# so you can check the output at http://localhost:8000/Hatsune_Miku.html
+grunt --slug=Hatsune_Miku
 ```
-
-...where `slug` is the text after `en.wikipedia.org/wiki/` (e.g. `Hatsune_Miku` for http://en.wikipedia.org/wiki/Hatsune_Miku).
 
 ### License
 
