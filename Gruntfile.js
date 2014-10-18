@@ -23,6 +23,10 @@ module.exports = function(grunt) {
             ['class', 'src', 'id', 'style', 'colspan', 'cellspacing']);
         });
 
+        $('*[src^="\/\/"]').each(function() {
+          $(this).attr('src', 'http:' + $(this).attr('src'));
+        });
+
         $('script, link, style, meta').remove();
         $('head').append('<link rel="stylesheet" href="' + slug + '.css">');
 
@@ -55,6 +59,7 @@ module.exports = function(grunt) {
         $('link[rel="stylesheet"]').each(function(i) {
           var href = $(this).attr("href");
           request('http:' + href, function (error, response, body) {
+            body = body.replace(/\(\/\//g, '(http://');
             fs.writeFile("tmp/" + slug + i + ".css", body, function(err) {
               if(err) {
                 grunt.log.error(err);
